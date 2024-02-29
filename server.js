@@ -57,8 +57,7 @@ app.post('/contact', function(req, res){
         const abc= " INSERT INTO flakes(fname, number, mssg )  values('mansi','"
             +number+"','"+mssg+
         "');";
-        
-
+      
         con.query(abc, function (err, result) {
             if (err) throw err;
             console.log("Result: " + result);
@@ -68,6 +67,35 @@ app.post('/contact', function(req, res){
 
 })
 
+
+
+     
+        
+app.post('/details', function(req, res){
+    
+    
+    con.connect(function(err) {
+        console.log("Connected!");
+        if (err) throw err;
+        
+
+        const xyz= "select * from flakes;";
+
+        con.query(xyz, function (err, result, fields) {
+            if (err) throw err;
+
+            for(let i=0; i<8; i++){
+                console.log("Result: " + result[i]['mssg'])
+            };
+            
+                
+            
+
+
+          });
+
+    });
+});
 
 app.get('/login', (req, res)=> {
     console.log(__dirname)
@@ -83,6 +111,13 @@ app.get('/login', (req, res)=> {
          
         });
     
+        app.get('/details', (req, res)=> {
+            console.log(__dirname)
+            //   res.sendFile(path.join(__dirname, 'views/form.ejs'))
+            res.render("details.ejs", {})
+             
+            });
+        
 
     app.listen(4090, function(req,res){
         console.log("server start")
