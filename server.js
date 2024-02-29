@@ -33,6 +33,8 @@ app.post('/login', function(req, res){
         +email+
         '");';
 
+        
+
         con.query(sql, function (err, result) {
             if (err) throw err;
             console.log("Result: " + result);
@@ -43,12 +45,44 @@ app.post('/login', function(req, res){
 });
 
 
+app.post('/contact', function(req, res){
+    console.log(req.body)
+    var number=req.body.Phone
+    var mssg=req.body.message
+
+    con.connect(function(err) {
+        if (err) throw err;
+        console.log("Connected!");
+
+        const abc= " INSERT INTO flakes(fname, number, mssg )  values('mansi','"
+            +number+"','"+mssg+
+        "');";
+        
+
+        con.query(abc, function (err, result) {
+            if (err) throw err;
+            console.log("Result: " + result);
+
+          });
+      });
+
+})
+
+
 app.get('/login', (req, res)=> {
     console.log(__dirname)
     //   res.sendFile(path.join(__dirname, 'views/form.ejs'))
     res.render("login.ejs", {})
      
     });
+
+    app.get('/contact', (req, res)=> {
+        console.log(__dirname)
+        //   res.sendFile(path.join(__dirname, 'views/form.ejs'))
+        res.render("contact.ejs", {})
+         
+        });
+    
 
     app.listen(4090, function(req,res){
         console.log("server start")

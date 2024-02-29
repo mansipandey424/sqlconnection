@@ -1,0 +1,47 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(160, 45, 27);
+  }
+
+  header{
+    background-color: #782608;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+
+  #row{
+    padding: 50px;
+    text-align: center;
+  }
+
+  #row1{
+    max-width: 600px;
+    margin: 0 auto;
+    
+  }
+
+.red{
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-size: 18px;
+  }
+
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
